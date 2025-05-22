@@ -450,9 +450,8 @@ Tokio有几种不同的channel：
 * broadcast：多生产者，多消费者。可以发送多个值，每个接收者都能看到每个值
 * watch：多生产者，多消费者。可以发送多个值，但不保留历史记录。接收者只能看到最近的值
 
-1. 
+1. `manager`与`server`之间适合使用mpsc channel通信
 2. task与`manager`task之间适合使用oneshot channel通信
-
 ```rust
 // client.rs
 #[derive(Debug)]
@@ -532,3 +531,5 @@ async fn main() {
     manager.await.unwrap();
 }
 ```
+
+# I/O & Framing
